@@ -33,7 +33,7 @@ jobs:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: Deploy
           service-name: tenniskamu
-          app-name: tenniskamu
+          app-name: tenniskamuapp
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
 
