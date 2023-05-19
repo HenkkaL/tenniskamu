@@ -1,8 +1,7 @@
-name: AzureSpringCloud
+name: AzureSpringApps
 on: push
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
-  JAVA_VERSION: 17
   AZURE_SUBSCRIPTION: 689cf616-bd35-4ce0-9118-152a52ae3a4a
 
 jobs:
@@ -10,17 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy to production with artifact
     steps:
-      - name: Checkout Github Action
+      - name: Checkout GitHub Action
         uses: actions/checkout@v2
-        
-      - name: Set up JDK ${{ env.JAVA_VERSION }}
-        uses: actions/setup-java@v1
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
         with:
-          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+          java-version: '17'
 
       - name: maven build, clean
         run: |
-          mvn clean package -DskipTests
+          mvn clean package
 
       - name: Login via Azure CLI
         uses: azure/login@v1
@@ -36,3 +36,4 @@ jobs:
           app-name: tenniskamu
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
+
