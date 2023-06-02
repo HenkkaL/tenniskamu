@@ -7,11 +7,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "excercise_category")
+@Table(name = "exercise_category")
 // @Data --known bug
 @Getter
 @Setter
-public class ExcerciseCategory {
+public class ExerciseCategory {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +22,5 @@ public class ExcerciseCategory {
     private String categoryName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-    private Set<Excercise> excercises;
+    private Set<Exercise> exercises;
 }

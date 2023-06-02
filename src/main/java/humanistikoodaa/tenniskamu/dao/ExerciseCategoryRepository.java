@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import humanistikoodaa.tenniskamu.entity.ExerciseCategory;
 
 @RepositoryRestResource(collectionResourceRel = "exerciseCategory", path = "exercise-category")
-public interface ExcerciseCategoryRepository extends JpaRepository<ExcerciseCategory, Long>{
+public interface ExerciseCategoryRepository extends JpaRepository<ExerciseCategory, Long>{
 
 }

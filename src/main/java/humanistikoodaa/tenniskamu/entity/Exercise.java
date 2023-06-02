@@ -9,9 +9,9 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="excercise")
+@Table(name="exercise")
 @Data
-public class Excercise {
+public class Exercise {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class Excercise {
 	
 	@ManyToOne
 	@JoinColumn(name = "category_id", nullable = false)
-	private ExcerciseCategory category;
+	private ExerciseCategory category;
 	
 	@Column(name = "name")
 	private String name;
