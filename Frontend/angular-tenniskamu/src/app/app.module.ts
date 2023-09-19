@@ -2,15 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { ExerciseListComponent } from './components/exercise-list/exercise-list.component';
+import { HttpClientModule } from '@angular/common/http'
+import { ExerciseService } from './services/exercise.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ExerciseListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ExerciseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

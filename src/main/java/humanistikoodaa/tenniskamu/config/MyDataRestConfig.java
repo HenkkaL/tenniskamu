@@ -6,8 +6,8 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
-import humanistikoodaa.tenniskamu.entity.Excercise;
-import humanistikoodaa.tenniskamu.entity.ExcerciseCategory;
+import humanistikoodaa.tenniskamu.entity.Exercise;
+import humanistikoodaa.tenniskamu.entity.ExerciseCategory;
 
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
@@ -19,14 +19,14 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 		HttpMethod[] theUnsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
 		
 		config.getExposureConfiguration()
-		.forDomainType(Excercise.class)
-		.withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-		.withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+		.forDomainType(Exercise.class)
+		.withItemExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+		.withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
 		
 		config.getExposureConfiguration()
-		.forDomainType(ExcerciseCategory.class)
-		.withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
-		.withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+		.forDomainType(ExerciseCategory.class)
+		.withItemExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+		.withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
 	}
 
 }
